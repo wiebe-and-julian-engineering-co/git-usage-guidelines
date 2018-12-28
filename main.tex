@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+
+\usepackage[style=ieee]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\lstdefinelanguage{Ini}
+{
+    basicstyle=\ttfamily\small,
+    columns=fullflexible,
+    morecomment=[s][\color{Orchid}\bfseries]{[}{]},
+    morecomment=[l]{\#},
+    morecomment=[l]{;},
+    commentstyle=\color{gray}\ttfamily,
+    morekeywords={},
+    otherkeywords={=,:},
+    keywordstyle={\color{green}\bfseries}
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\footnotesize Draft}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\title{
+      Git Usage Guidelines \\
+      \begin{large}
+         For Large Software Projects
+      \end{large}
+}
+\date{\today}
+\author{Wiebe and Julian Engineering Cooperation}
+
+\begin{document}
+
+\pagenumbering{gobble} % No numbering on title page
+\maketitle
+
+\newpage
+\pagenumbering{Roman} % Required to be roman until table of contents
+\tableofcontents
+\newpage
+\pagenumbering{arabic} % Required to be arabic after table of contents
+
+\newpage
+\section{Introduction}
+
+
+\pagebreak
+\section{Git Usage and Regulations}
+\subsection{Git Config}
+Because of the versality of development platforms a Git config is published for
+every supported development platform. This config is complete and should not be
+tampered with. Any issues regarding tampering or wrong usage should be reported
+directly to the nearest technical person with a management role.
+
+When a configuration is not correct for specific projects, the reason should be
+documented and reported to a technical manager. When permission is granted the
+new configuration is permitted for usage within that Git repository and the
+technical manager is expected to revise the currently published Git config and
+look for improvements.
+
+\paragraph{Config File}
+Every property is supported by a rationale. The file version on the first line
+should not be changed by hand. When permitted to modify the file, an x should be
+added next to the patch fragment of the version, like so: \lstinline{1.2.3x},
+this indicates an experimental config. See appendix \ref{appendix:git_config}
+for the latest config file.
+
+\printbibliography
+
+\newpage
+\begin{appendix}
+   \fancyfoot{} % Remove Footer In Appenix
+
+   \section{Git Config File}
+   \href{https://example.com}{Click here to view config file online}
+
+   \label{appendix:git_config}
+   \begin{lstlisting}[language=Ini]
+#### VERSION 0.0.1
+[core]
+   fileMode: false # FileMode is false to prevent cross-platform issues
+#### END OF GIT CONFIG
+   \end{lstlisting}
+\end{appendix}
+
+\end{document}

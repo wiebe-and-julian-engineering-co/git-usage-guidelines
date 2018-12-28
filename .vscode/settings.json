@@ -1,0 +1,12 @@
+{
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.outputDir": "build/",
+    "latex-workshop.latex.recipes": [
+        {
+          "name": "latexmk",
+          "tools": [
+            "latexmk"
+          ]
+        }
+      ]
+}
